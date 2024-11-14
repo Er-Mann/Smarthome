@@ -1,0 +1,24 @@
+<div class="device-tile">
+  <div class="image-container" (click)="toggleState()">
+    <img class="actuator-image" src="{{getImageUrl()}}" alt="Actuator">
+  </div>
+  <div class="info-container">
+    <div class="row">
+      <div class="col-2 no-all">
+        <div class="vertical-center">
+          <img *ngIf="canDecrement()" class="arrow" src="/assets/img/rooms/arrowLeft.png" alt="Decrement"
+               (click)="onDecrementClick()">
+        </div>
+      </div>
+      <div class="col-8 no-all center-text ">
+        <p class="no-all truncate center">{{actuator.name}}<br>{{getCurrentValue()}}</p>
+      </div>
+      <div class="col-2 no-all center-content-vertical">
+        <div class="vertical-center">
+          <img *ngIf="canIncrement()" class="arrow" src="/assets/img/rooms/arrowRight.png" alt="Decrement"
+               (click)="onIncrementClick()">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

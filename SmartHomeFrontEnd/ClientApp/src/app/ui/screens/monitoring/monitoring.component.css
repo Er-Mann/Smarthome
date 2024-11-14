@@ -1,0 +1,64 @@
+.main {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/assets/img/main/herbst.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.slider{
+    height: 170px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.list-item {
+  display: inline-block !important;
+  position: relative;
+}
+
+.list-item-selected {
+  display: inline-block !important;
+  position: relative;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.6);
+}
+
+h1{
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.video{
+    width: 100%;
+    height: 100%;
+}
+
+.video_container {
+    left: 0;
+    right: 0;
+    position: fixed;
+    top: 110px;
+    bottom: 220px;
+
+}

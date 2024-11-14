@@ -1,0 +1,39 @@
+<div class="main">
+    <app-toolbar title="Sicherheit" showHome="true"></app-toolbar>
+    
+    <div class="scroll-container">
+        <p>Gruppeninformation</p>
+
+        <div class="row">
+            <div class="column actors">
+                <button routerLink='/security/aktor' class="aktoren_bearbeiten" mat-mini-fab color="white" ><mat-icon>list</mat-icon></button>
+                <p>Aktoren</p>
+                
+                <table>
+                    <tbody>
+                        <tr *ngFor="let actor of actors">
+                            <td>{{actor.name}}:</td>
+                            <td>{{actor.on}} an</td>
+                            <td>{{actor.off}} aus</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="column sensors">
+                <button class="sensoren_bearbeiten" mat-mini-fab color="white"routerLink='/sensoroverview'><mat-icon>list</mat-icon></button>
+                <p>Sensoren</p>
+                <table>
+                    <tbody>
+                        <tr *ngFor="let sensor of sensors">
+                            <td>{{sensor.name}}:</td>
+                            <td>{{sensor.on}} an</td>
+                            <td>{{sensor.off}} aus</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>

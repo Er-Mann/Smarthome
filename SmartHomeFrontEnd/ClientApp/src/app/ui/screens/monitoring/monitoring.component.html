@@ -1,0 +1,17 @@
+<div class="main">
+  <app-toolbar title="Überwachung" showHome="true"></app-toolbar>
+
+  <h1>{{currentTitle}}</h1>
+
+  <div class="video_container">
+    <video #videoStream class="video" autoplay>
+      <source src="{{currentUrl}}" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="slider">
+    <ng-container *ngFor="let stream of visibleTiles">
+      <app-stream-tile class="list-item" [animatedTile]="stream" (click)="onPinClick(stream.id)"></app-stream-tile>
+    </ng-container>
+  </div>
+</div>

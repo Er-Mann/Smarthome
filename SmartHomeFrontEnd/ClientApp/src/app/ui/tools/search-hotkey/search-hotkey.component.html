@@ -1,0 +1,11 @@
+<div>
+    <button *ngIf="!hideSearchHotkey && !expanded" id="search_btn" class="button" (click)="onExpandClick()"><img class="search-icon" src="/assets/img/search/search_icon.png"></button>
+    <div *ngIf="!hideSearchHotkey && expanded" class="search_expanded">
+        <div>
+            <button class="button-collapse" (click)="onCollapseClick()"><img class="collapse-icon" src="/assets/img/search/collapse_arrow.png" alt="collapse"></button>
+        </div>
+        <div class="search-box-container">
+            <input class="search-box" type="text" placeholder="Suchen nach...">
+        </div>
+    </div>
+</div>

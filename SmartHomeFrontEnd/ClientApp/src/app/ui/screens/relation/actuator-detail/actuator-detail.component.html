@@ -1,0 +1,100 @@
+<div class="main">
+  <app-toolbar title="Neue Beziehung" showHome="true"></app-toolbar>
+
+  <div class="scroll-container">
+    <p>Sensoren</p>
+    <div class="sliderLayout row">
+      <div class="col-2">
+        <app-simple-image-text-tile routerLink="addsensor" [baseTile]="add"></app-simple-image-text-tile>
+      </div>
+      <div class="col-10">
+        <div class="slider">
+          <ng-container *ngFor="let sensor of relationsService.sensors">
+            <app-sensor-tile *ngIf="sensor.selected" class="listitem" [sensor]="sensor.sensor"
+                             (click)="onSensorClick(sensor)"></app-sensor-tile>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="relations-container">
+    <p>Bedingung</p>
+    <mat-radio-group [(ngModel)]="entry.operation" aria-label="Select an option">
+      <div class="verticalCentering">
+      Verknüpfung:
+      <mat-radio-button [value]="0">UND </mat-radio-button>
+      <mat-radio-button [value]="1">ODER </mat-radio-button>
+      </div>
+    </mat-radio-group>
+    <div class="relations">
+      <div>
+        <div class="position">
+          <ng-container *ngFor="let row of getSelectedSensors()">
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Sensor</mat-label>
+              <mat-select [(ngModel)]="row.sensor.name" matNativeControl required disabled>
+                <mat-option *ngFor="let sensor of getSelectedSensors()"
+                            [value]="sensor.sensor.name">{{sensor.sensor.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+<!--            <mat-form-field class="position wrapper-priority" appearance="fill">-->
+<!--              <mat-label>Verknüpfung</mat-label>-->
+<!--              <mat-select [(ngModel)]="row.operation" matNativeControl required>-->
+<!--                <mat-option *ngFor="let operation of operations" [value]="operation">{{operation}}</mat-option>-->
+<!--              </mat-select>-->
+<!--            </mat-form-field>-->
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Vergleich</mat-label>
+              <mat-select [(ngModel)]="row.compare" matNativeControl required>
+                <mat-option *ngFor="let compare of compares" [value]="compare">{{compare}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Vergleichswert</mat-label>
+              <input [ngModel]="row.compareValue" (ngModelChange)="valueChanged($event,row.id,entry.id,'compareValue')"
+                     type="number" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Mindestzeit</mat-label>
+              <input [ngModel]="row.minTime" (ngModelChange)="valueChanged($event,row.sensor.id,entry.id,'minTime')"
+                     type="number" matInput>
+            </mat-form-field>
+
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Zustand</mat-label>
+              <mat-select [(ngModel)]="row.condition" matNativeControl required>
+                <mat-option *ngFor="let condition of conditions" [value]="condition">{{condition}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="position wrapper">
+              <p>Von</p>
+              <ngx-timepicker-field [format]="24" [(ngModel)]="row.startTime"
+                                    [defaultTime]="row.startTime"></ngx-timepicker-field>
+            </div>
+
+            <div class="position wrapper">
+              <p>Bis</p>
+              <ngx-timepicker-field [format]="24" [(ngModel)]="row.endTime"
+                                    [defaultTime]="row.endTime"></ngx-timepicker-field>
+            </div>
+
+            <mat-divider></mat-divider>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button routerLink="/" class="doneButton" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+    <mat-icon>done</mat-icon>
+  </button>
+</div>

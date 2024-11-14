@@ -1,0 +1,11 @@
+<div class="main">
+  <div class="scroll-container container">
+    <div class="tile-container">
+      <ng-container *ngFor="let tile of getAllTiles()">
+        <app-stream-tile [animatedTile]="tile" routerLink="{{tile.referenceTo}}"></app-stream-tile>
+      </ng-container>
+    </div>
+  </div>
+  <app-weather-widget></app-weather-widget>
+  <app-search-hotkey></app-search-hotkey>
+</div>

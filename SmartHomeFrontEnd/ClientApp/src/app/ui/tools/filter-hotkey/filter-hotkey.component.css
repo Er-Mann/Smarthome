@@ -1,0 +1,23 @@
+.filter-icon {
+    height: 35px;
+    width: 35px;
+}
+
+.button {
+    position: fixed;
+    top: 170px;
+    right: 0;
+    height: 40px;
+    width: 90px;
+    background: rgba(0, 0, 0, 0.55);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+    outline: none;
+    transition: transform 0.1s;
+}
+
+.button:hover {
+    transform: scale(1.2);
+    background: rgba(0, 0, 0, 0.7);
+}

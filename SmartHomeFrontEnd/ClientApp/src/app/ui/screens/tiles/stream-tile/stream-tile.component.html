@@ -1,0 +1,41 @@
+<!--<p>stream-tile works!</p>-->
+
+<!--<mat-card class="main-tile">-->
+<!--  &lt;!&ndash;<a mat-button  routerLink="{{tile.routerLink}}" routerLinkActive="active"><img *ngIf = "tile.type == 1" class="icon-size" src="{{tile.imgUrl}}" alt="Photo"></a>&ndash;&gt;-->
+<!--  <img *ngIf = "tile.type == 1" class="icon-size" src="{{tile.imgUrl}}" alt="Photo">-->
+
+<!--  <video *ngIf = "tile.type == 0"  class="streaming" autoplay>-->
+<!--    <source src="{{tile.streamingUrl}}" type="video/mp4">-->
+<!--  </video>-->
+<!--  <mat-card-content>-->
+<!--    <p>{{tile.text}}</p>-->
+<!--  </mat-card-content>-->
+<!--</mat-card>-->
+
+<div class="device-tile">
+  <div class="image-container">
+    <img *ngIf="!animatedTile.isStreamSet()" class="actuator-image" src="{{animatedTile.imageUrl}}" alt="TileImage">
+    <video *ngIf="animatedTile.isStreamSet()" class="streaming" autoplay>
+      <source src="{{animatedTile.streamingUrl}}" type="video/mp4">
+    </video>
+  </div>
+  <div *ngIf="!animatedTile.pinned" class="info-container">
+    <div class="row">
+      <div class="col-12 no-all center-text ">
+        <p class="no-all truncate center">{{animatedTile.name}}</p>
+        <p *ngIf="animatedTile.hasDescription()" class="no-all truncate center">{{animatedTile.description}}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="animatedTile.pinned" class="info-container-selected">
+    <div class="row">
+      <div class="col-12 no-all center-text ">
+        <p class="no-all truncate center">{{animatedTile.name}}</p>
+        <p *ngIf="animatedTile.hasDescription()" class="no-all truncate center">{{animatedTile.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

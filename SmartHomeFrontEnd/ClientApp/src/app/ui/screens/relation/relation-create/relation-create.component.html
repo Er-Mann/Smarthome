@@ -1,0 +1,94 @@
+<div class="main">
+  <app-toolbar title="Neue Beziehung" showHome="true"></app-toolbar>
+
+  <div class="scroll-container">
+    <p>Aktoren</p>
+    <div class="sliderLayout row">
+      <div class="col-2">
+        <app-simple-image-text-tile class="listitem" routerLink="addactuator" [baseTile]="add"></app-simple-image-text-tile>
+      </div>
+      <div class="col-10">
+        <div class="slider">
+          <ng-container *ngFor="let actuator of relationsService.actuators">
+            <app-actuator-tile *ngIf="actuator.selected" class="listitem"
+                               [actuator]=actuator.actuator (click)="onActuatorClick(actuator)"></app-actuator-tile>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relations-container">
+    <div>
+      <p class="displayArt">Beziehungen</p>
+      <button (click)="onAddClick()" class="position" mat-icon-button color=""
+              aria-label="Example icon button with a heart icon">
+        <mat-icon class="displayArt">add</mat-icon>
+      </button>
+    </div>
+
+
+
+    <div class="relations">
+      <div>
+        <ng-container *ngFor="let row of relationsService.newRelations">
+
+          <div class="position">
+
+            <mat-form-field class="position wrapper" appearance="fill">
+              <mat-label>Name</mat-label>
+              <input [ngModel]="row.name" (ngModelChange)="valueChanged($event,row.id,'name')" type="text" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper" appearance="fill">
+              <mat-label>Funktion</mat-label>
+              <mat-select [(ngModel)]="row.fun" matNativeControl required>
+                <mat-option *ngFor="let fun of functions" [value]="fun">{{fun}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper" appearance="fill">
+              <mat-label>Startverzögerung [sec]</mat-label>
+              <input [ngModel]="row.delay" (ngModelChange)="valueChanged($event,row.id,'delay')" type="number" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper" appearance="fill">
+              <mat-label>Ausführungsdauer [sec]</mat-label>
+              <input [ngModel]="row.duration" (ngModelChange)="valueChanged($event,row.id,'duration')" type="number" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Wert</mat-label>
+              <input [ngModel]="row.value" (ngModelChange)="valueChanged($event,row.id,'value')" type="number" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="position wrapper-priority" appearance="fill">
+              <mat-label>Priorität</mat-label>
+              <mat-select [(ngModel)]="row.priority" matNativeControl required>
+                <mat-option *ngFor="let priority of priorities" [value]="priority">{{priority}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-slide-toggle *ngIf="row.active" [(ngModel)]="row.active" class="position">Aktiv</mat-slide-toggle>
+            <mat-slide-toggle *ngIf="!row.active" [(ngModel)]="row.active" class="position">Inaktiv</mat-slide-toggle>
+
+            <button routerLink="detail/{{row.id}}" class="position" mat-fab color="white"
+                    aria-label="Example icon button with a delete icon">
+              <mat-icon>details</mat-icon>
+            </button>
+            <button (click)="deleteRow(row.id)" class="position" mat-fab color="warn"
+                    aria-label="Example icon button with a delete icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+            <mat-divider></mat-divider>
+
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <button class="doneButton" mat-fab color="warn" (click)="saveRelation()">
+    <mat-icon>done</mat-icon>
+  </button>
+</div>

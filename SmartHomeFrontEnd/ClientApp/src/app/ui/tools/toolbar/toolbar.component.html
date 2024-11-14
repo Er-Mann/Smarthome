@@ -1,0 +1,5 @@
+<div class="toolbar-container">
+    <a (click)="onBackClicked()"><img class="toolbar-icon" src="/assets/img/toolbar/back_arrow.png" alt="Back"></a>
+    <p class="title">{{title}}</p>
+    <a *ngIf="showHome == 'true'" routerLink="/main"><img class="toolbar-icon-home" src="/assets/img/toolbar/home.png" alt="Home"></a>
+</div>

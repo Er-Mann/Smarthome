@@ -1,0 +1,13 @@
+<div class="main">
+  <app-toolbar title="Sensoren-Übersicht" showHome="true"></app-toolbar>
+  <div class="scroll-container">
+    <div class="tile-container">
+      <ng-container *ngFor="let sensor of filteredSensors">
+        <app-sensor-tile *ngIf="!canSelectSensor(sensor)" [class.actuatorAktiv]="sensor.selected" [sensor]="sensor.sensor"></app-sensor-tile>
+        <app-sensor-tile *ngIf="canSelectSensor(sensor)" [class.actuatorAktiv]="sensor.selected" (click)="onSensorClick(sensor)" [sensor]="sensor.sensor"></app-sensor-tile>
+<!--        <app-actuator-tile *ngIf="!canSelectSensor(sensor)"  [class.actuatorAktiv]="sensor.selected" [actuator]=sensor.sensor></app-actuator-tile>-->
+<!--        <app-actuator-tile *ngIf="canSelectSensor(sensor)" [class.actuatorAktiv]="sensor.selected" (click)="onSensorClick(sensor)" [actuator]=sensor.sensor></app-actuator-tile>-->
+      </ng-container>
+    </div>
+  </div>
+</div>

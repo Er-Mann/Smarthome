@@ -1,0 +1,13 @@
+<div class="device-tile">
+  <div class="image-container">
+    <img class="actuator-image" src="{{baseTile.imageUrl}}" alt="TileImage">
+  </div>
+  <div class="info-container">
+    <div class="row">
+      <div class="col-12 no-all center-text ">
+        <p class="no-all truncate center">{{baseTile.name}}</p>
+        <p *ngIf="baseTile.hasDescription()" class="no-all truncate center">{{baseTile.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="main">
+  <app-toolbar title="Aktorübersicht" showHome="true"></app-toolbar>
+  <div class="scroll-container">
+    <div class="tile-container">
+      <ng-container *ngFor="let actuator of filteredActuators">
+        <app-actuator-tile [class.actuatorAktiv]="actuator.selected" (click)="onActuatorClick(actuator)" [actuator]=actuator.actuator></app-actuator-tile>
+      </ng-container>
+    </div>
+  </div>
+</div>

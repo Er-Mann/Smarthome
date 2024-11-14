@@ -1,0 +1,35 @@
+<div class="main">
+  <app-toolbar title="Aktorübersicht" showHome="true"></app-toolbar>
+  <div class="scroll-container">
+    <p>Aktoren</p>
+
+    <div class="row">
+      <div class="column actors">
+        <table  mdbTable mdbTableScroll scrollY="true" maxHeight="200" bordered="true" >
+          <ng-container>
+          <th *ngFor="let column of headers; let i = index"> {{column}}</th>
+          <tbody>
+            <tr *ngFor="let row of visibleActuators">
+              <td>{{row.name}}</td>
+              <td>{{row.typ}} </td>
+              <td>{{row.wert}}</td>
+              <td>{{row.dauer}}</td>
+              <td>{{row.feindauer}}</td>
+              <td>{{row.zustandsWert}}</td>
+              
+              <mat-select placeholder="Select ein Zustand" >
+                <mat-option *ngFor="let zustand of zustands" [value]="zustand.value">
+                  {{ zustand.viewValue }}
+                </mat-option>
+              </mat-select>
+           
+            </tr>
+          </tbody>
+        </ng-container>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>

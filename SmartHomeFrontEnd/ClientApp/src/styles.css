@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Provide sufficient contrast against white background */
+
+a {
+    color: #0366d6;
+}
+
+code {
+    color: #e0481a;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.body_background {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/assets/img/main/herbst.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

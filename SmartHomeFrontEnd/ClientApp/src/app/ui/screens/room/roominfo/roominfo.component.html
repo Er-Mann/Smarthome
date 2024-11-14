@@ -1,0 +1,17 @@
+<div class="main">
+  <app-toolbar title="Wohnzimmer" showHome="true"></app-toolbar>
+  <div class="scroll-container">
+    <p>Aktoren</p>
+    <div class="tile-container">
+      <ng-container *ngFor="let actuator of visibleActuators">
+        <app-actuator-tile [actuator]=actuator></app-actuator-tile>
+      </ng-container>
+    </div>
+    <p>Sensoren</p>
+    <div class="tile-container">
+      <ng-container *ngFor="let sensor of visibleSensors">
+        <app-sensor-tile [sensor]=sensor></app-sensor-tile>
+      </ng-container>
+    </div>
+  </div>
+</div>

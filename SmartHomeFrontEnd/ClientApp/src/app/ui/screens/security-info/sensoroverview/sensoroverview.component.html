@@ -1,0 +1,43 @@
+<div class="main">
+    <app-toolbar title="Sensorübersicht" showHome="true"></app-toolbar>
+    <div class="scroll-container">
+        <p>Sensoren</p>
+
+        <div class="row">
+            <div class="column">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Typ</th>
+                            <th>Wert</th>
+                            <th>Zustand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let sensor of visibleSensors">
+                            <tr *ngIf="sensor.changed=='normal'">
+                                <td>{{sensor.name}}:</td>
+                                <td>{{sensor.type}}</td>
+                                <td>{{sensor.value}}</td>
+                                <td>{{sensor.state}}</td>
+                            </tr>
+                            <tr *ngIf="sensor.changed=='changed'" class="changed_row">
+                                <td>{{sensor.name}}:</td>
+                                <td>{{sensor.type}}</td>
+                                <td>{{sensor.value}}</td>
+                                <td>{{sensor.state}}</td>
+                            </tr>
+                            <tr *ngIf="sensor.changed=='gray'" class="gray_row">
+                                <td>{{sensor.name}}:</td>
+                                <td>{{sensor.type}}</td>
+                                <td>{{sensor.value}}</td>
+                                <td>{{sensor.state}}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.toolbar-container {
+    height: 50px;
+    width: 100%;
+    padding: 7px 10px 7px 10px;
+    border-bottom: 1px solid black;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.toolbar-icon {
+    display: block;
+    float: left;
+    height: 35px;
+    width: 35px;
+}
+
+.toolbar-icon-home {
+    display: block;
+    float: right;
+    height: 35px;
+    width: 35px;
+}
+
+.title {
+    display: block;
+    float: left;
+    font-size: 25px;
+}

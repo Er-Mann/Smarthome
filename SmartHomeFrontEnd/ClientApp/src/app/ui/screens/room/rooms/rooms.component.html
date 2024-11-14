@@ -1,0 +1,13 @@
+<div class="main">
+  <app-toolbar title="Räume" showHome="true"></app-toolbar>
+  <div class="scroll-container">
+    <ng-container *ngFor="let floor of visibleFloors">
+      <p *ngIf="floor.rooms.length > 0">{{floor.name}}</p>
+      <div *ngIf="floor.rooms.length > 0" class="tile-container">
+        <ng-container *ngFor="let room of floor.rooms">
+          <app-simple-image-text-tile [baseTile]="room" routerLink="{{room.referenceTo + room.id}}"></app-simple-image-text-tile>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>
